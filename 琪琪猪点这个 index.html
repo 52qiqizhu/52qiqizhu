@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery+html5烂漫爱心表白动画</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">/**</span><br />
+			<span class="space"/><span class="comments">*2020—10-18,</span><br />
+			<span class="space"/><span class="comments">*2020-10-26.</span><br />
+			<span class="space"/><span class="comments">*/</span><br />
+			Boy name = <span class="keyword">Mr</span> SUN<br />
+			Girl name = <span class="keyword">Mrs</span> CHEN<br />
+			<span class="comments">// 嘻嘻嘻，琪琪猪你来了呀. </span><br />
+			欢迎来到这里;<br />
+			<span class="comments">// 其实我有好多话跟你说，但又不知道怎么说起.</span><br />
+			在这个剑与魔法的世界遇见你，好幸运呀;<br />
+			<span class="comments">// 小小的峡谷里面承载了我们两个陌生灵魂的相知相遇.</span><br />
+			所以我要记录下来;<br />
+			<span class="comments">// 嗨呀，不知道说啥呀，朗诵一段诗歌吧.</span>
+			<br>
+			<br>
+			<span class="comments">// 我们分担寒潮、风雷、霹雳.</span><br />
+			<span class="comments">// 我们共享雾霭、流岚、虹霓.</span><br />
+			<span class="comments">// 仿佛永远分离.</span><br />
+			<span class="comments">// 却又终身相依.</span><br />
+			
+			<br>
+			<br>
+			未完待续~<br />
+			<br />
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					宝贝，这是我们在一起峡谷遨游的时光。
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					晓看天色暮看云--。<br/>
+					<div class="signature">- 孙先生</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2020, 9, 10);
+together.setHours(20);
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+<div style="text-align:center;clear:both"></div>
+</body>
+</html>
